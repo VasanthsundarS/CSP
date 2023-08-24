@@ -1,0 +1,56 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+        <link rel="stylesheet" href="{{url_for('static', filename='platformStyle.css')}}">
+    </head>
+    <body>
+        <div class="row d-flex justify-content-center container">
+            <div class="col-md-8">
+                <div class="card-hover-shadow-2x mb-3 card">
+                    <div class="card-header-tab card-header">
+                        <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+                            class="fa fa-tasks"></i>&nbsp;Task Lists</div>
+                    </div>
+                    <div class="scroll-area-sm">
+                        <perfect-scrollbar class="ps-show-limits">
+                            <div style="position: static;" class="ps ps--active-y">
+                            <div class="ps-content">
+                                <ul class=" list-group list-group-flush">
+                                {% for row in data %}
+                                <li class="list-group-item">
+                                    <div class="todo-indicator bg-primary"></div>
+                                    <div class="widget-content p-0">
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left mr-2">
+                                        <div class="custom-checkbox custom-control"><input class="custom-control-input"
+                                            id="exampleCustomCheckbox4" type="checkbox"><label class="custom-control-label"
+                                            for="exampleCustomCheckbox4">&nbsp;</label></div>
+                                        </div>
+                                        <div class="widget-content-left flex2">
+                                        <div class="widget-heading">{{row[2]}}</div>
+                                        <div class="widget-subheading">{{row[3]}}</div>
+                                        </div>
+                                        <div class="widget-content-right">
+                                        <button class="border-0 btn-transition btn btn-outline-success">
+                                            <i class="fa fa-check"></i></button>
+                                        <button class="border-0 btn-transition btn btn-outline-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </div>
+                            </div>
+                        </perfect-scrollbar>
+                    </div>
+                    <div class="d-block text-right card-footer"><button class="mr-2 btn btn-link btn-sm">Cancel</button><button
+                        class="btn btn-primary">Add Task</button></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
